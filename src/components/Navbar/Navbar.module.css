@@ -8,8 +8,10 @@
     text-decoration: none;
     /*color: white;*/
 }
-.item a {
+.item {
     color: yellow;
-}.item.active a {
+}
+
+.active {
     color: orange;
  }

@@ -1,22 +1,24 @@
 import classes from './Navbar.module.css';
+import {NavLink} from "react-router-dom";
 
 const Navbar = () => {
   return (
     <nav className={classes.nav}>
       <div className={classes.item}>
-        <a href="/profile">Profile</a>
-      </div>
-      <div className={`${classes.item} ${classes.active}`}>
-        <a href="/messages">Messages</a>
+        <NavLink to="/profile" className={nd => nd.isActive ? classes.active : classes.item}>Profile</NavLink>
       </div>
       <div className={classes.item}>
-        <a href="/news">News</a>
+        <NavLink to="/messages" className={nd => nd.isActive ? classes.active : classes.item}> Messages</NavLink>
+      {/*  nd - название переменной функции. может быть любым. используется для проверки активности ссылки*/}
       </div>
       <div className={classes.item}>
-        <a href="/musik">Musik</a>
+        <NavLink to="/news" className={nd => nd.isActive ? classes.active : classes.item}> News</NavLink>
       </div>
       <div className={classes.item}>
-        <a href="/settings">Settings</a>
+        <NavLink to="/musik" className={nd => nd.isActive ? classes.active : classes.item}> Musik</NavLink>
+      </div>
+      <div className={classes.item}>
+        <NavLink to="/settings" className={nd => nd.isActive ? classes.active : classes.item}> Settings</NavLink>
       </div>
     </nav>
   )
