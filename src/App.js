@@ -3,23 +3,23 @@ import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
-import {BrowserRouter, Route, Router} from "react-router-dom";
+import {Routes, Route, BrowserRouter} from "react-router-dom";
 
-function App(props) {
+const App = (props) => {
 
   return (
-
+  <BrowserRouter>
     <div className="app-wrapper">
       <Header/>
       <Navbar/>
       <div className="app-wrapper-content">
-        <Router history=''>
-          <Route path='/profile' component={Profile}/>
-          <Route path='/messages' component={Dialogs}/>
-        </Router>
+        <Routes>
+          <Route path='/profile' element={<Profile />}/>
+          <Route path='/messages' element={<Dialogs />}/>
+        </Routes>
       </div>
     </div>
-
+  </BrowserRouter>
   );
 }
 
