@@ -2,8 +2,8 @@
 .nav {
     grid-area: n;
     background-color: green;
-    height: 100%;
     padding: 20px;
+    padding-bottom: 0px;
 }
 .nav a {
     text-decoration: none;

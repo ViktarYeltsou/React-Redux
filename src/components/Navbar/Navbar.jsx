@@ -8,7 +8,7 @@ const Navbar = () => {
         <NavLink to="/profile" className={nd => nd.isActive ? classes.active : classes.item}>Profile</NavLink>
       </div>
       <div className={classes.item}>
-        <NavLink to="/messages" className={nd => nd.isActive ? classes.active : classes.item}> Messages</NavLink>
+        <NavLink to="/dialogs" className={nd => nd.isActive ? classes.active : classes.item}> Messages</NavLink>
       {/*  nd - название переменной функции. может быть любым. используется для проверки активности ссылки*/}
       </div>
       <div className={classes.item}>
