@@ -6,7 +6,8 @@ const state = {
       {id: 1, message: 'How are you, dude?!', likesCount: 10},
       {id: 2, message: 'I\'m fine', likesCount: 11},
       {id: 3, message: 'Well done!', likesCount: 12}
-    ]
+    ],
+    newPostText: 'enter post'
   },
   dialogPage: {
     dialogs: [
@@ -24,15 +25,21 @@ const state = {
     ]
   }
 }
-export let addPost = (postMessage) => {
-    let newPost = {
-      id : 5,
-      message : postMessage,
-      likesCount : 1
-    }
-    state.profilePage.posts.push(newPost);
-    renderEntireTree(state);
+  //addPost - callback для записи нового поста в posts, очистки поля textarea и ререндера
+export const addPost = () => {
+  let newPost = {
+    id: 5,
+    message: state.profilePage.newPostText,
+    likesCount: 1
   }
-
+  state.profilePage.posts.push(newPost);
+  updateNewPostText('');
+  renderEntireTree(state);
+}
+//updateNewPostText - callback для обновления поля textarea и ререндера
+export const updateNewPostText = (newText) => {
+  state.profilePage.newPostText = newText;
+  renderEntireTree(state);
+}
 
 export default state;
