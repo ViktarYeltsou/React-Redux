@@ -9,13 +9,15 @@ const MyPosts = (props) => {
 
   //addPost вызывает callback только для записи нового объекта (отображаемого текста) в state
   const addPost = () => {
-    props.addPost();
+    // props.addPost();
+    props.dispatch({type: 'ADD-POST'});
   }
 
   //onPostChange вызывает callback только для передачи нового значения textarea в state
   const onPostChange = () => {
     let text = newPostElement.current.value;
-    props.updateNewPostText(text);
+    // props.updateNewPostText(text);
+    props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: text})
   }
 
   return (
