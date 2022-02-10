@@ -10,11 +10,11 @@ const dialogsReducer = (state, action) => {
       }
       state.messages.push(newMessage);
       state.newMessageText = '';
+      return state;
     }
-      break
     case UPDATE_NEW_MESSAGE_TEXT:
       state.newMessageText = action.body;
-      break
+      return state;
     default:
       return state;
   }
