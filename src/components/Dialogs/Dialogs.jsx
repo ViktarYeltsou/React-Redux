@@ -4,6 +4,7 @@ import Message from "./Message/Message";
 import {addMessageAC, updateNewMessageAC} from "../../redux/dialogsReducer";
 
 const Dialogs = (props) => {
+  debugger;
   const messageElements = props.state.messages.map(el => <Message message={el.message} id={el.id}/> )
   const dialogElements = props.state.dialogs.map(el => <DialogItem name={el.name} id={el.id}/> )
 
