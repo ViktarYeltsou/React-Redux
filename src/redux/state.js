@@ -44,8 +44,8 @@ const store = {
   },
 
   dispatch(action) {
-    profileReducer(this._state.profilePage, action)
-    dialogsReducer(this._state.dialogPage, action)
+    this._state.profilePage = profileReducer(this._state.profilePage, action)
+    this._state.dialogPage = dialogsReducer(this._state.dialogPage, action)
     this._callSubsriber(this._state);
   }
 }
