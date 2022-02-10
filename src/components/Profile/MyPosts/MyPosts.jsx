@@ -1,6 +1,7 @@
 import classes from "./MyPost.module.css";
 import Post from "./Post/Post";
 import React from "react";
+import {addPostAC, updateNewPostAC} from "../../../redux/state";
 
 const MyPosts = (props) => {
   const postsElements = props.postsData.map(el => (<Post message={el.message} likes={el.likesCount}/>));
@@ -9,15 +10,13 @@ const MyPosts = (props) => {
 
   //addPost вызывает callback только для записи нового объекта (отображаемого текста) в state
   const addPost = () => {
-    // props.addPost();
-    props.dispatch({type: 'ADD-POST'});
+    props.dispatch(addPostAC());
   }
 
   //onPostChange вызывает callback только для передачи нового значения textarea в state
   const onPostChange = () => {
     let text = newPostElement.current.value;
-    // props.updateNewPostText(text);
-    props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: text})
+    props.dispatch(updateNewPostAC(text));
   }
 
   return (

@@ -7,21 +7,17 @@ import {Routes, Route} from "react-router-dom";
 
 const App = (props) => {
   return (
-  // <BrowserRouter>
     <div className="app-wrapper">
       <Header/>
       <Navbar/>
       <div className="app-wrapper-content">
         <Routes>
           <Route path='/profile' element={<Profile state={props.state.profilePage}
-                                                   // addPost={props.addPost}
-                                                   // updateNewPostText={props.updateNewPostText}
                                                    dispatch={props.dispatch}/>}/>
           <Route path='/dialogs' element={<Dialogs state={props.state.dialogPage}/>} />
         </Routes>
       </div>
     </div>
-  // </BrowserRouter>
   );
 }
 

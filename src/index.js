@@ -1,9 +1,6 @@
-// import React from 'react';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
-// import state, {addPost, subscriber, updateNewPostText} from './redux/state'
-// import {renderEntireTree} from "./render";
 import store from "./redux/state";
 import ReactDOM from "react-dom";
 import React from "react";
@@ -15,8 +12,6 @@ const renderEntireTree = (state) => {
     <React.StrictMode>
       <BrowserRouter>
         <App state={state}
-             // addPost={store.addPost.bind(store)}
-             // updateNewPostText={store.updateNewPostText.bind(store)}
              dispatch={store.dispatch.bind(store)}/>
       </BrowserRouter>
     </React.StrictMode>,

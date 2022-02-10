@@ -1,3 +1,7 @@
+
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+
 const store = {
   _state: {
     profilePage: {
@@ -35,21 +39,6 @@ const store = {
     this._callSubsriber = observer;
   },
 
-  // addPost() {
-  //   let newPost = {
-  //     id: 5,
-  //     message: this._state.profilePage.newPostText,
-  //     likesCount: 1
-  //   }
-  //   this._state.profilePage.posts.push(newPost);
-  //   this.updateNewPostText('');
-  //   this._callSubsriber(this._state);
-  // },
-  // updateNewPostText(newText) {
-  //   this._state.profilePage.newPostText = newText;
-  //   this._callSubsriber(this._state);
-  // },
-
   dispatch(action) {
     if (action.type === 'ADD-POST') {
       let newPost = {
@@ -67,6 +56,11 @@ const store = {
     }
   }
 }
+
+export const addPostAC = () => ({type: ADD_POST});
+export const updateNewPostAC = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
+
+
 export default store;
 //тут обязательно let, иак как мы будем ее переопределять через subscriber
 // let renderEntireTree = () => {}
