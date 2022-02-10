@@ -1,7 +1,7 @@
 import classes from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import {addMessageAC, updateNewMessageAC} from "../../redux/state";
+import {addMessageAC, updateNewMessageAC} from "../../redux/dialogsReducer";
 
 const Dialogs = (props) => {
   const messageElements = props.state.messages.map(el => <Message message={el.message} id={el.id}/> )
@@ -23,16 +23,17 @@ const Dialogs = (props) => {
         </div>
         <div className={classes.messages}>
           {messageElements}
+          <div>
+            <div>
+              <textarea onChange={onMessageChange} value={props.state.newMessageText} />
+            </div>
+            <div>
+              <button onClick={addMessage}>Add message</button>
+            </div>
+          </div>
         </div>
       </div>
-      <div>
-        <div>
-          <textarea onChange={onMessageChange} value={props.state.newMessageText} />
-        </div>
-        <div>
-          <button onClick={addMessage}>Add message</button>
-        </div>
-      </div>
+
     </div>
   );
 }
