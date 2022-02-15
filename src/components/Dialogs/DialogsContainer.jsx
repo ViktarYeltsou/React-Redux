@@ -15,4 +15,6 @@ const DialogsContainer = (props) => {
   return <Dialogs addMessage={addMessage} updateNewMessageText={onMessageChange} state={state}/>
 
 }
+
+// const SuperDialogsContainer =
 export default DialogsContainer;
