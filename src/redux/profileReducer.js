@@ -10,7 +10,7 @@ const initialState = {
 }
 const profileReducer = (state = initialState, action) => {
 
-  const copyState = {...state}
+  const copyState = {...state} // shallow copy
 
   switch (action.type) {
     case ADD_POST: {
@@ -19,9 +19,11 @@ const profileReducer = (state = initialState, action) => {
         message: state.newPostText,
         likesCount: 1
       }
+      copyState.posts = [...state.posts]  //deep copy
       copyState.posts.push(newPost);
       copyState.newPostText = '';
-      return copyState; }
+      return copyState;
+    }
     case UPDATE_NEW_POST_TEXT: {
       copyState.newPostText = action.newText;
       return copyState
