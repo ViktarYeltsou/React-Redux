@@ -10,8 +10,6 @@ const initialState = {
 }
 const profileReducer = (state = initialState, action) => {
 
-  const copyState = {...state} // shallow copy
-
   switch (action.type) {
     case ADD_POST:
       return {...state, posts: [...state.posts, {id: 5, message: state.newPostText}], newPostText: ''}
@@ -20,7 +18,7 @@ const profileReducer = (state = initialState, action) => {
       return {...state, newPostText: action.newText}
 
     default:
-      return copyState;
+      return {...state};
   }
 }
 

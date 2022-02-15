@@ -19,8 +19,6 @@ const initialState = {
 
 const dialogsReducer = (state = initialState, action) => {
 
-  const copyState = {...state}
-
   switch (action.type) {
     case ADD_MESSAGE:
       return {...state, messages: [...state.messages, {id: 6, message: state.newMessageText}], newMessageText: ''}
@@ -29,7 +27,7 @@ const dialogsReducer = (state = initialState, action) => {
       return {...state, newMessageText: action.body}
 
     default:
-      return copyState;
+      return {...state};
   }
 }
 
