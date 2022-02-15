@@ -4,8 +4,8 @@ import Message from "./Message/Message";
 
 const Dialogs = (props) => {
   debugger;
-  const messageElements = props.state.messages.map(el => <Message message={el.message} id={el.id}/> )
-  const dialogElements = props.state.dialogs.map(el => <DialogItem name={el.name} id={el.id}/> )
+  const messageElements = props.messages.map(el => <Message message={el.message} id={el.id}/> )
+  const dialogElements = props.dialogs.map(el => <DialogItem name={el.name} id={el.id}/> )
 
   const addMessageClick = () => {
     props.addMessage()
@@ -25,7 +25,7 @@ const Dialogs = (props) => {
           {messageElements}
           <div>
             <div>
-              <textarea onChange={onMessageChange} value={props.state.newMessageText} />
+              <textarea onChange={onMessageChange} value={props.newMessageText} />
             </div>
             <div>
               <button onClick={addMessageClick}>Add message</button>
