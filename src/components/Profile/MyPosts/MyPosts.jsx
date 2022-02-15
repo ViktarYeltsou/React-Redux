@@ -1,22 +1,20 @@
 import classes from "./MyPost.module.css";
 import Post from "./Post/Post";
 import React from "react";
-import {addPostAC, updateNewPostAC} from "../../../redux/profileReducer";
 
 const MyPosts = (props) => {
-  const postsElements = props.postsData.map(el => (<Post message={el.message} likes={el.likesCount}/>));
 
-  const newPostElement = React.createRef();
+  const postsElements = props.posts.map(el => (<Post message={el.message} likes={el.likesCount}/>));
 
   //addPost вызывает callback только для записи нового объекта (отображаемого текста) в state
-  const addPost = () => {
-    props.dispatch(addPostAC());
+  const addPostClick = () => {
+    props.addPost();
   }
 
   //onPostChange вызывает callback только для передачи нового значения textarea в state
-  const onPostChange = () => {
-    let text = newPostElement.current.value;
-    props.dispatch(updateNewPostAC(text));
+  const onPostChange = (element) => {
+    let text = element.target.value;
+    props.updateNewPostText(text);
   }
 
   return (
@@ -24,10 +22,10 @@ const MyPosts = (props) => {
       <h3>My posts</h3>
       <div>
         <div>
-          <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText} />
+          <textarea onChange={onPostChange} value={props.newPostText} />
         </div>
         <div>
-          <button onClick={addPost}>Add post</button>
+          <button onClick={addPostClick}>Add post</button>
         </div>
       </div>
       <div className={classes.posts}>

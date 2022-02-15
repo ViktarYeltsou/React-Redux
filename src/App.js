@@ -12,12 +12,11 @@ const App = (props) => {
       <Navbar/>
       <div className="app-wrapper-content">
         <Routes>
-          <Route path='/profile' element={<Profile state={props.state.profilePage}
-                                                   dispatch={props.dispatch}/>}/>
-          <Route path='/dialogs' element={<DialogsContainer store={props.store}
-                                                            // state={props.state.dialogPage}
-                                                            // dispatch={props.dispatch}
-          />} />
+          <Route path='/profile' element={<Profile store={props.store}
+                                                   //          state={props.state.profilePage}
+                                                   // dispatch={props.dispatch}
+          />}/>
+          <Route path='/dialogs' element={<DialogsContainer store={props.store} />} />
         </Routes>
       </div>
     </div>
