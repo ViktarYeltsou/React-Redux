@@ -1,21 +1,31 @@
 import classes from "./Users.module.css";
 import {followAC, unfollowAC} from "../../redux/usersReducer";
+
 const Users = (props) => {
 
   return <div>
     {
-      props.users.map( u =>
+      props.users.map(u =>
         <div key={u.id}>
-          <div>
-            <img src={u.userUrl} alt="ava"/>
+          <span>
+            <div>
+              <img src={u.userUrl} alt="ava"/>
+            </div>
+
             {u.followed
               ? <button onClick={unfollowAC}>Unfollow</button>
-              : <button onClick={followAC}>Follow</button> }
-          </div>
-          <span>{' ' + u.userName}</span>
-          <span>{' ' + u.location.cityName}</span>
-          <span>{' ' + u.location.country}</span>
-          <span>{' ' + u.userStatus}</span>
+              : <button onClick={followAC}>Follow</button>}
+          </span>
+         <span>
+           <span>
+             <div>{u.userName}</div>
+             <div>{u.userStatus}</div>
+           </span>
+           <span>
+             <div>{u.location.cityName}</div>
+             <div>{u.location.country}</div>
+           </span>
+         </span>
           <p>___</p>
 
         </div>
