@@ -1,5 +1,4 @@
 import classes from "./Users.module.css";
-import {followAC, unfollowAC} from "../../redux/usersReducer";
 
 const Users = (props) => {
 
@@ -9,12 +8,13 @@ const Users = (props) => {
         <div key={u.id}>
           <span>
             <div>
-              <img src={u.userUrl} alt="ava"/>
+              <img src={u.userUrl} alt="ava" className={classes.userPhoto}/>
             </div>
 
             {u.followed
-              ? <button onClick={unfollowAC}>Unfollow</button>
-              : <button onClick={followAC}>Follow</button>}
+              ? <button onClick={() => props.unfollow(u.id)}>Unfollow</button>
+              : <button onClick={() => props.follow(u.id)}>Follow</button>
+            }
           </span>
          <span>
            <span>
