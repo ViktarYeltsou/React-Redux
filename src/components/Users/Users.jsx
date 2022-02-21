@@ -3,8 +3,11 @@ import axios from "axios";
 import React from "react";
 
 class Users extends React.Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
+  //
+  // }
+  componentDidMount() {
     alert("new");
     axios.get("http://localhost:5000/api/users").then(response => {
       // console.log(response)
