@@ -1,6 +1,16 @@
 import classes from "./Users.module.css";
+import axios from "axios";
 
 const Users = (props) => {
+  if (props.users.length === 0) {
+
+    // const axios = require('axios');
+
+    axios.get("http://localhost:5000/api/users").then(response => {
+      console.log(response)
+      props.setUsers(response.data)
+    })
+  }
 
   return <div>
     {

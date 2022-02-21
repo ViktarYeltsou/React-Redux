@@ -4,18 +4,17 @@ const SET_USERS = 'SET-USERS';
 
 const initialState = {
   users: [
-    {id: 1, userUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo7S86HLw3FSPP3Iflpfq1OkfEfkB8zdRGpw&usqp=CAU',
-      followed: true, userName: 'Artem', userStatus: 'status', location: {cityName: 'Minsk', country: 'Belarus'}},
-    {id: 2, userUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo7S86HLw3FSPP3Iflpfq1OkfEfkB8zdRGpw&usqp=CAU',
-      followed: false, userName: 'Sergey', userStatus: 'status', location: {cityName: 'Vilnus', country: 'Lithuania'}},
-    {id: 3, userUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo7S86HLw3FSPP3Iflpfq1OkfEfkB8zdRGpw&usqp=CAU',
-      followed: true, userName: 'Andrey', userStatus: 'status', location: {cityName: 'Brest', country: 'Belarus'}},
-
+    // {id: 1, userUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo7S86HLw3FSPP3Iflpfq1OkfEfkB8zdRGpw&usqp=CAU',
+    //   followed: true, userName: 'Artem', userStatus: 'status', location: {cityName: 'Minsk', country: 'Belarus'}},
+    // {id: 2, userUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo7S86HLw3FSPP3Iflpfq1OkfEfkB8zdRGpw&usqp=CAU',
+    //   followed: false, userName: 'Sergey', userStatus: 'status', location: {cityName: 'Vilnus', country: 'Lithuania'}},
+    // {id: 3, userUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo7S86HLw3FSPP3Iflpfq1OkfEfkB8zdRGpw&usqp=CAU',
+    //   followed: true, userName: 'Andrey', userStatus: 'status', location: {cityName: 'Brest', country: 'Belarus'}},
   ]
 }
 
 const usersReducer = (state = initialState, action) => {
-  debugger
+
   switch (action.type) {
     case FOLLOW:
       // return {...state, users: state.users.map( u => u.id === action.userId ? {...u, followed: true} : u)} /// переписать на if
