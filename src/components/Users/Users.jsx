@@ -2,11 +2,12 @@ import classes from "./Users.module.css";
 import axios from "axios";
 import React from "react";
 
-class UsersC extends React.Component {
+class Users extends React.Component {
   constructor(props) {
     super(props);
+    alert("new");
     axios.get("http://localhost:5000/api/users").then(response => {
-      console.log(response)
+      // console.log(response)
       this.props.setUsers(response.data)
     });
   }
@@ -45,4 +46,4 @@ class UsersC extends React.Component {
     </div>
   }
 }
-export default UsersC;
+export default Users;
