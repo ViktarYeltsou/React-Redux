@@ -1,16 +1,14 @@
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET-USERS';
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+const SET_TOTAL_USER_COUNT = 'SET_TOTAL_USER_COUNT';
 
 const initialState = {
-  users: [
-    // {id: 1, userUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo7S86HLw3FSPP3Iflpfq1OkfEfkB8zdRGpw&usqp=CAU',
-    //   followed: true, userName: 'Artem', userStatus: 'status', location: {cityName: 'Minsk', country: 'Belarus'}},
-    // {id: 2, userUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo7S86HLw3FSPP3Iflpfq1OkfEfkB8zdRGpw&usqp=CAU',
-    //   followed: false, userName: 'Sergey', userStatus: 'status', location: {cityName: 'Vilnus', country: 'Lithuania'}},
-    // {id: 3, userUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo7S86HLw3FSPP3Iflpfq1OkfEfkB8zdRGpw&usqp=CAU',
-    //   followed: true, userName: 'Andrey', userStatus: 'status', location: {cityName: 'Brest', country: 'Belarus'}},
-  ]
+  users: [],
+  pageSize: 5,
+  totalUsersCount: 20,
+  currentPage: 3
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -20,9 +18,9 @@ const usersReducer = (state = initialState, action) => {
       // return {...state, users: state.users.map( u => u.id === action.userId ? {...u, followed: true} : u)} /// переписать на if
       return {
         ...state,
-        users: state.users.map( u => {
+        users: state.users.map(u => {
           if (u.id === action.userId) {
-            return { ...u, followed: true}
+            return {...u, followed: true}
           }
           return u
         })
@@ -31,15 +29,19 @@ const usersReducer = (state = initialState, action) => {
       // return {...state, users: state.users.map( u => u.id === action.userId ? {...u, followed: false} : u)}
       return {
         ...state,
-        users: state.users.map( u => {
+        users: state.users.map(u => {
           if (u.id === action.userId) {
-            return { ...u, followed: false}
+            return {...u, followed: false}
           }
           return u
         })
       }
-      case SET_USERS:
-      return {...state, users: [...state.users, ...action.users]} //склейка массивов
+    case SET_USERS:
+      return {...state, users: [...action.users]} //склейка массивов
+    case SET_CURRENT_PAGE:
+      return {...state, currentPage: action.currentPage}
+    case SET_TOTAL_USER_COUNT:
+      return {...state, totalUsersCount: action.totalCount}
 
     default:
       return state;
@@ -49,5 +51,7 @@ const usersReducer = (state = initialState, action) => {
 export const followAC = (userId) => ({type: FOLLOW, userId});
 export const unfollowAC = (userId) => ({type: UNFOLLOW, userId});
 export const setUsersAC = (users) => ({type: SET_USERS, users});
+export const onSetCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
+export const onSetTotalUsersCountAC = (totalCount) => ({type: SET_TOTAL_USER_COUNT, totalCount});
 
 export default usersReducer;
